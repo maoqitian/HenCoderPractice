@@ -33,17 +33,12 @@ class LessonAdapter : RecyclerView.Adapter<LessonViewHolder>() {
      */
     class LessonViewHolder internal constructor(itemView: View) : BaseViewHolder(itemView) {
         fun onBind(lesson: Lesson) {
-            var date = lesson.date
-            if (date == null) {
-                date = "日期待定"
-            }
-            setText(R.id.tv_date, date)
+            setText(R.id.tv_date, lesson.date?:"日期待定")
             setText(R.id.tv_content, lesson.content)
             val state = lesson.state
-            if (state != null) {
-                setText(R.id.tv_state, state.stateName())
-                var colorRes = R.color.playback
-                colorRes = when (state) {
+            lesson.state.let {
+                setText(R.id.tv_state, it.stateName())
+                val colorRes = when (it) {
                     Lesson.State.PLAYBACK -> {
 
                         // 即使在 {} 中也是需要 break 的。

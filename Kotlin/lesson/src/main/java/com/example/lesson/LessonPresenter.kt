@@ -2,7 +2,7 @@ package com.example.lesson
 
 import com.example.core.http.EntityCallback
 import com.example.core.http.HttpClient
-import com.example.core.utils.Utils.toast
+import com.example.core.utils.toast
 import com.example.lesson.entity.Lesson
 import com.google.gson.reflect.TypeToken
 import java.util.*
@@ -24,13 +24,7 @@ open class LessonPresenter(private val activity: LessonActivity) {
     }
 
     fun showPlayback() {
-        val playbackLessons = ArrayList<Lesson>()
-        for (lesson in lessons) {
-            if (lesson.state === Lesson.State.PLAYBACK) {
-                playbackLessons.add(lesson)
-            }
-        }
-        activity.showResult(playbackLessons)
+        activity.showResult(lessons.filter { it.state === Lesson.State.PLAYBACK })
     }
 
     companion object {

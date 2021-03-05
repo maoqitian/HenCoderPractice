@@ -10,9 +10,9 @@ class BaseApplication : Application() {
     }
 
     companion object {
-        private var currentApplication: Context? = null
-        fun currentApplication(): Context {
-            return currentApplication!!
-        }
+        @JvmStatic
+        @get:JvmName("currentApplication") //外部调用可以直接获取它
+        lateinit var currentApplication: Context
+         private set
     }
 }
