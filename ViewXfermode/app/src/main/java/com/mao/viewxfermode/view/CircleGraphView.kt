@@ -5,7 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.mao.viewxfermode.R
-import pxtodp
+import dp
 
 /**
  * @Description: 圆形 View 使用 xfermode 实现 多个图形的混合融合
@@ -13,8 +13,8 @@ import pxtodp
  * @date 2021/3/9 0009 15:51
  */
 //图片宽高
-private val IMAGE_WIDTH = 150f.pxtodp
-private val IMAGE_PADDING = 20f.pxtodp
+private val IMAGE_WIDTH = 150f.dp
+private val IMAGE_PADDING = 20f.dp
 private val XFERMODE = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
 
 class CircleGraphView(context: Context,attrs: AttributeSet): View(context,attrs) {
