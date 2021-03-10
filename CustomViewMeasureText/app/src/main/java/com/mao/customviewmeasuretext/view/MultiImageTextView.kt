@@ -91,7 +91,7 @@ class MultiImageTextView (context: Context, attributeSet: AttributeSet): View(co
                 //重合 减去图片宽度
                 width.toFloat() - BITMAP_WIDTH
             }
-            //测量
+            //测量 换行
             count =  paint.breakText(text,textLineStart,text.length,true,textMaxWith,measureFloatWith)
             //绘制
             canvas.drawText(text,textLineStart,textLineStart + count,0f,textLineOffset,paint)
