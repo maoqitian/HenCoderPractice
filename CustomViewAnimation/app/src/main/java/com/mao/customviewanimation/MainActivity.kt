@@ -8,6 +8,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import com.mao.customviewanimation.view.NBAStarEvaluator
 import dp
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,24 +35,25 @@ class MainActivity : AppCompatActivity() {
         /**
          * ObjectAnimator 指定特定 属性变化
          */
-      /*  val objectAnimator = ObjectAnimator.ofFloat(view,"radiusCircle",200f)
-        objectAnimator.startDelay = 1000
-        objectAnimator.start()*/
+        val circleobjectAnimator = ObjectAnimator.ofFloat(circleView,"radiusCircle",200f)
+        circleobjectAnimator.startDelay = 1500
+        circleobjectAnimator.duration = 2000
+        circleobjectAnimator.start()
 
         /**
          * AnimatorSet 属性动画组合
          */
 
         //图片几何动画变化
-        /*val topFlipAnimator = ObjectAnimator.ofFloat(view,"topFlip",60f)
+        val topFlipAnimator = ObjectAnimator.ofFloat(cameraView,"topFlip",60f)
         topFlipAnimator.startDelay = 1000
         topFlipAnimator.duration  = 1500
 
-        val flipRotateAnimator = ObjectAnimator.ofFloat(view,"flipRotate",360f)
+        val flipRotateAnimator = ObjectAnimator.ofFloat(cameraView,"flipRotate",360f)
         flipRotateAnimator.startDelay = 100
         flipRotateAnimator.duration  = 1500
 
-        val bottomFlipAnimator = ObjectAnimator.ofFloat(view,"bottomFlip",-60f)
+        val bottomFlipAnimator = ObjectAnimator.ofFloat(cameraView,"bottomFlip",-60f)
         bottomFlipAnimator.startDelay = 100
         bottomFlipAnimator.duration  = 1500
 
@@ -59,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         val animatorSet = AnimatorSet()
         //顺序执行
         animatorSet.playSequentially(topFlipAnimator,bottomFlipAnimator,flipRotateAnimator)
-        animatorSet.start()*/
+        animatorSet.start()
 
 
         /**
@@ -109,13 +111,35 @@ class MainActivity : AppCompatActivity() {
         flipAnimator.startDelay= 500
         flipAnimator.start()*/
         /**
-         * TypeEvaluator 各种类型都可以
+         * 自定义 TypeEvaluator 各种类型都可以
          * ⽤于设置动画完成度到属性具体值的计算公式
          */
-        val objectAnimator = ObjectAnimator.ofObject(view,"pointF",PointEvaluator(),PointF(80.dp,160.dp))
-        objectAnimator.duration = 3000
+        val pointAnimator = ObjectAnimator.ofObject(pointView,"pointF",PointEvaluator(),PointF(80.dp,160.dp))
+        pointAnimator.duration = 3000
+        pointAnimator.startDelay= 500
+        pointAnimator.start()
+
+         val objectAnimator = ObjectAnimator.ofObject(textAnimView,"NBAStarName",NBAStarEvaluator(),"文斯卡特")
+        objectAnimator.duration = 5000
         objectAnimator.startDelay= 500
         objectAnimator.start()
 
+        /**
+         * Listener
+         */
+        objectAnimator.addListener(object:Animator.AnimatorListener{
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+        })
     }
 }

@@ -22,7 +22,7 @@ class PointView (context: Context, attr: AttributeSet) : View(context,attr){
         strokeCap = Paint.Cap.ROUND
     }
 
-    private var pointF = PointF(10f,10f)
+    var pointF = PointF(10f,10f)
     set(value) {
         field = value
         invalidate()
