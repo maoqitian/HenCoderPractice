@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mao.measurelayoutapplication.taglayout.TagFlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     tools:context=".MainActivity">
 
     <!--<com.mao.measurelayoutapplication.view.SquareImageView
@@ -18,10 +17,213 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"/>-->
 
-    <com.mao.measurelayoutapplication.view.CircleView
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:background="@color/colorPrimaryDark"
-        />
+    <!-- <com.mao.measurelayoutapplication.view.CircleView
+         android:layout_width="350dp"
+         android:layout_height="300dp"
+         android:background="@color/colorPrimaryDark"
+         />-->
 
-</LinearLayout>
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="迈克尔乔丹" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="沙奎奥尼尔" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="比尔拉塞尔" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="特雷西麦克格雷迪" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="艾伦艾弗森" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="勒布朗詹姆斯" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="科比布莱恩特" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="克里斯保罗" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="德怀恩韦德" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="克里斯波什" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="卡梅隆安东尼" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="詹姆斯哈登" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="凯文杜兰特" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="凯里欧文" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="卡哇伊莱昂纳德" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="安东尼戴维斯" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="保罗乔治" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="达米安利拉德" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="扬尼斯阿昆托博" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="本西蒙斯" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="卢卡东契奇" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="杰森塔图姆" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="杰伦布朗" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="凯文加内特" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="蒂姆邓肯" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="托尼帕克" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="吉诺比利" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="保罗皮尔斯" />
+
+    <com.mao.measurelayoutapplication.taglayout.TagTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="文斯卡特" />
+
+</com.mao.measurelayoutapplication.taglayout.TagFlowLayout>

@@ -10,7 +10,7 @@ import dp
 /**
  *  author : maoqitian
  *  date : 2021/3/14 13:11
- *  description :
+ *  description : 画圆 能够根据开发者传入期望的值判断大小
  */
 class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -27,7 +27,7 @@ class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
         //当前 view 期望大小
         var viewSize = ((radius + padding) *2).toInt()
 
-        //重新判断大小是否合适
+        //重新判断大小是否合适 固定代码 系统提供
 
         val width = resolveSize(viewSize,widthMeasureSpec)
         val height = resolveSize(viewSize,heightMeasureSpec)
