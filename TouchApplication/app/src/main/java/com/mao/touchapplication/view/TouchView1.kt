@@ -10,7 +10,7 @@ import dp
 import getBitmap
 
 /**
- * @Description: 接力型 触摸
+ * @Description: 接力型 触摸 第二根手指触摸的时候接力 第一个手指触摸的事件
  * @author maoqitian
  * @date 2021/3/18 0018 10:40
  */
@@ -28,6 +28,7 @@ class TouchView1(context: Context, attrs: AttributeSet) : View(context, attrs) {
     var offsetX = 0f
     var offsetY = 0f
 
+    //初始偏移
     var originalOffsetX = 0f
     var originalOffsetY = 0f
 
