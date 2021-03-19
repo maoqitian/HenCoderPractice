@@ -19,7 +19,7 @@ class MultiTouchView2(context: Context, attrs: AttributeSet) : View(context, att
 
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    val bitmapImage = getBitmap(resources,150.dp.toInt())
+    val bitmapImage = getBitmap(resources,250.dp.toInt())
 
     //按下坐标
     var downX = 0f
@@ -35,9 +35,7 @@ class MultiTouchView2(context: Context, attrs: AttributeSet) : View(context, att
     //当前拖动的手指
     var trackId = 0
 
-    //中心点坐标
-    var centerFocusX = 0f
-    var centerFocusY = 0f
+
 
 
     override fun onDraw(canvas: Canvas) {
@@ -46,7 +44,9 @@ class MultiTouchView2(context: Context, attrs: AttributeSet) : View(context, att
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-
+        //中心点坐标
+        var centerFocusX = 0f
+        var centerFocusY = 0f
         var sumX = 0f
         var sumY = 0f
         var pointerCount = event.pointerCount
@@ -69,7 +69,7 @@ class MultiTouchView2(context: Context, attrs: AttributeSet) : View(context, att
 
 
         when(event.actionMasked){
-            MotionEvent.ACTION_DOWN,MotionEvent.ACTION_POINTER_DOWN,MotionEvent.ACTION_POINTER_UP ->{
+            MotionEvent.ACTION_DOWN,MotionEvent.ACTION_POINTER_DOWN,MotionEvent.ACTION_POINTER_UP ->{ //都是一样的记录当前中心点和偏移位置
                downX = centerFocusX
                downY = centerFocusY
                //记录按下图片的初始偏移 保证第二次按的时候移动正确

@@ -19,7 +19,7 @@ class TouchView1(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    val bitmapImage = getBitmap(resources,150.dp.toInt())
+    val bitmapImage = getBitmap(resources,250.dp.toInt())
 
     //按下坐标
     var downX = 0f
