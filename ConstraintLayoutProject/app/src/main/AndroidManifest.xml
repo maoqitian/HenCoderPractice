@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SampleActivity"></activity>
+        <activity android:name=".LinearActivity"></activity>
+        <activity android:name=".CircularRevealActivity" />
+        <activity android:name=".PlaceHolderActivity" />
+        <activity android:name=".ConstraintSetXActivity" />
+        <activity android:name=".CircularPositionActivity" />
+        <activity android:name=".SampleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
