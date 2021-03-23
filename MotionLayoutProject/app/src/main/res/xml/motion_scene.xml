@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!--定义动画开始结束画面 动画时长 曲线-->
+    <Transition
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="3000"
+        motion:motionInterpolator="easeInOut">
+        <!--点击 image1 启动动画效果-->
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@id/image1" />
+
+        <!--关键帧定义动画每个阶段的动作
+        motion:motionTarget 表示关键点应用的控件
+        motion:framePosition 表示这个点处于动画进行到百分比
+        motion:keyPositionType 表示使用的坐标系，有三种选择
+        parentRelative
+        deltaRelative
+        pathRelative
+        motion:percentX motion:percentX 关键点的（x,y）坐标
+        -->
+        <KeyFrameSet>
+            <!--image1-->
+            <KeyPosition
+                app:motionTarget="@id/image1"
+                app:framePosition="10"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="26"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image1"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="42"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image1"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="58"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image1"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="74"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image1"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image2-->
+            <KeyPosition
+                app:motionTarget="@id/image2"
+                app:framePosition="12"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="28"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image2"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="44"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image2"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="60"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image2"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="76"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image2"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image3-->
+            <KeyPosition
+                app:motionTarget="@id/image3"
+                app:framePosition="14"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="30"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image3"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="46"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image3"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="62"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image3"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="78"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image3"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image4-->
+            <KeyPosition
+                app:motionTarget="@id/image4"
+                app:framePosition="16"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="32"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image4"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="48"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image4"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="64"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image4"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="80"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image4"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image5-->
+            <KeyPosition
+                app:motionTarget="@id/image5"
+                app:framePosition="18"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="34"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image5"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image5"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="66"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image5"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="82"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image5"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image6-->
+            <KeyPosition
+                app:motionTarget="@id/image6"
+                app:framePosition="20"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="36"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image6"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="52"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image6"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="68"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image6"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="84"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image6"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image7-->
+            <KeyPosition
+                app:motionTarget="@id/image7"
+                app:framePosition="22"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="38"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image7"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="54"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image7"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="70"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image7"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="86"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image7"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image8-->
+            <KeyPosition
+                app:motionTarget="@id/image8"
+                app:framePosition="24"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="40"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image8"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="56"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image8"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="72"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image8"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="88"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image8"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image9-->
+            <KeyPosition
+                app:motionTarget="@id/image9"
+                app:framePosition="26"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="42"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image9"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="58"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image9"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="74"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image9"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="90"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image9"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image10-->
+            <KeyPosition
+                app:motionTarget="@id/image10"
+                app:framePosition="28"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="44"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image10"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="60"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image10"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="76"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image10"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="92"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image10"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image11-->
+            <KeyPosition
+                app:motionTarget="@id/image11"
+                app:framePosition="30"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="46"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image11"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="62"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image11"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="78"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image11"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="94"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image11"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image12-->
+            <KeyPosition
+                app:motionTarget="@id/image12"
+                app:framePosition="32"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="48"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image12"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="64"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image12"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="80"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image12"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="96"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image12"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image13-->
+            <KeyPosition
+                app:motionTarget="@id/image13"
+                app:framePosition="34"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image13"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="66"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image13"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="82"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image13"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="98"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image13"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image14-->
+            <KeyPosition
+                app:motionTarget="@id/image14"
+                app:framePosition="36"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="52"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image14"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="68"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image14"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="84"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image14"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="98"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image14"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image15-->
+            <KeyPosition
+                app:motionTarget="@id/image15"
+                app:framePosition="38"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="54"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image15"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="70"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image15"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="86"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image15"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="98"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image15"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+            <!--image16-->
+            <KeyPosition
+                app:motionTarget="@id/image16"
+                app:framePosition="40"
+                app:keyPositionType="parentRelative"
+                app:pathMotionArc="flip"
+                app:percentX="0.25"
+                app:percentY="0.65"
+                />
+            <KeyPosition
+                motion:framePosition="56"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image16"
+                motion:pathMotionArc="flip"
+                motion:percentX="0"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="72"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image16"
+                motion:pathMotionArc="startHorizontal"
+                motion:percentX="0.5"
+                motion:percentY="0.25" />
+            <KeyPosition
+                motion:framePosition="88"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image16"
+                motion:pathMotionArc="startVertical"
+                motion:percentX="1"
+                motion:percentY="0.5" />
+            <KeyPosition
+                motion:framePosition="98"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/image16"
+                motion:pathMotionArc="none"
+                motion:percentX="0.5"
+                motion:percentY="0.75" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/image1">
+            <!-- pathMotionArc 表示两点之间的path形状，默认是none（线性）-->
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <!--使用 Layout 包裹布局开始和结束镜像 方便些-->
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--自定义属性 定义颜色开始-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color1" />
+        </Constraint>
+        <Constraint android:id="@+id/image2">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color2" />
+        </Constraint>
+        <Constraint android:id="@+id/image3">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color3" />
+        </Constraint>
+        <Constraint android:id="@+id/image4">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color4" />
+        </Constraint>
+        <Constraint android:id="@+id/image5">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color5" />
+        </Constraint>
+        <Constraint android:id="@+id/image6">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color6" />
+        </Constraint>
+        <Constraint android:id="@+id/image7">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color7" />
+        </Constraint>
+        <Constraint android:id="@+id/image8">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color8" />
+        </Constraint>
+        <Constraint android:id="@+id/image9">
+            <!-- pathMotionArc 表示两点之间的path形状，默认是none（线性）-->
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <!--使用 Layout 包裹布局开始和结束镜像 方便些-->
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--自定义属性 定义颜色开始-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color9" />
+        </Constraint>
+        <Constraint android:id="@+id/image10">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color10" />
+        </Constraint>
+        <Constraint android:id="@+id/image11">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color11" />
+        </Constraint>
+        <Constraint android:id="@+id/image12">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color12" />
+        </Constraint>
+        <Constraint android:id="@+id/image13">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color13" />
+        </Constraint>
+        <Constraint android:id="@+id/image14">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color14" />
+        </Constraint>
+        <Constraint android:id="@+id/image15">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color15" />
+        </Constraint>
+        <Constraint android:id="@+id/image16">
+            <Motion
+                motion:drawPath="path"
+                motion:pathMotionArc="startVertical" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color16" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/image1">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image2"
+                android:layout_marginBottom="50dp"
+                app:layout_constraintVertical_chainStyle="spread_inside" /> <!--两边扩散-->
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color16" />
+        </Constraint>
+        <Constraint android:id="@+id/image2">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image1"
+                app:layout_constraintRight_toLeftOf="@id/image3"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color15" />
+        </Constraint>
+        <Constraint android:id="@+id/image3">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image2"
+                app:layout_constraintRight_toLeftOf="@id/image4"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color14" />
+        </Constraint>
+        <Constraint android:id="@+id/image4">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image3"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginBottom="50dp"
+                />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color13" />
+        </Constraint>
+        <Constraint android:id="@+id/image5">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image6"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                android:layout_marginBottom="50dp"
+                />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color12" />
+        </Constraint>
+        <Constraint android:id="@+id/image6">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image2"
+                app:layout_constraintLeft_toRightOf="@id/image5"
+                app:layout_constraintRight_toLeftOf="@id/image7"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color11" />
+        </Constraint>
+        <Constraint android:id="@+id/image7">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image3"
+                app:layout_constraintLeft_toRightOf="@id/image6"
+                app:layout_constraintRight_toLeftOf="@id/image8"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color10" />
+        </Constraint>
+        <Constraint android:id="@+id/image8">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image3"
+                app:layout_constraintLeft_toRightOf="@id/image7"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color9" />
+        </Constraint>
+        <Constraint android:id="@+id/image9">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image10"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                android:layout_marginBottom="50dp"
+                />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color8" />
+        </Constraint>
+        <Constraint android:id="@+id/image10">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image6"
+                app:layout_constraintLeft_toRightOf="@id/image9"
+                app:layout_constraintRight_toLeftOf="@id/image11"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color7" />
+        </Constraint>
+        <Constraint android:id="@+id/image11">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image7"
+                app:layout_constraintLeft_toRightOf="@id/image10"
+                app:layout_constraintRight_toLeftOf="@id/image12"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color6" />
+        </Constraint>
+        <Constraint android:id="@+id/image12">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image8"
+                app:layout_constraintLeft_toRightOf="@id/image11"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color5" />
+        </Constraint>
+        <Constraint android:id="@+id/image13">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image9"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image14"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                android:layout_marginBottom="50dp"
+                />
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color4" />
+        </Constraint>
+        <Constraint android:id="@+id/image14">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image10"
+                app:layout_constraintLeft_toRightOf="@id/image13"
+                app:layout_constraintRight_toLeftOf="@id/image15"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color3" />
+        </Constraint>
+        <Constraint android:id="@+id/image15">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image11"
+                app:layout_constraintLeft_toRightOf="@id/image14"
+                app:layout_constraintRight_toLeftOf="@id/image16"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color2" />
+        </Constraint>
+        <Constraint android:id="@+id/image16">
+            <Motion motion:drawPath="path" />
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toTopOf="@id/image12"
+                app:layout_constraintLeft_toRightOf="@id/image15"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginBottom="50dp"
+                />
+            <!--自定义属性 定义颜色结束-->
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color1" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
