@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.drag_add_text.view.*
 /**
  *  author : maoqitian
  *  date : 2021/3/21 10:20
- *  description : 拖拽到固定区域添加文字效果
+ *  description : 拖拽到固定区域添加文字效果  OnDragListener 方式 注重内容的移动。可以附加拖拽数据
  */
 class DragAddTextLayout(context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
