@@ -5,6 +5,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,14 +14,28 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.RandomAccessFile;
 import java.io.Reader;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
+
+import okio.BufferedSink;
+import okio.BufferedSource;
+import okio.Okio;
 
 /**
  * I/O
  * NIO
- * K
+ * OKio
  */
 
 public class IOTestClass {
@@ -33,7 +48,11 @@ public class IOTestClass {
         //outputStream4();
         //copyFile5();
         //socket6();
-        socket7();
+        //socket7();
+        //NIO8();
+        //NIO9();
+        //OKioTest10();
+        OKioCopyFile11();
     }
 
 
@@ -188,6 +207,91 @@ public class IOTestClass {
             e.printStackTrace();
         }
 
+    }
+
+    //NIO 文件读取 管道可以双向操作 可以读可以写
+    static void NIO8(){
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile("./IOlib/FileOutput.txt","r");
+            //获取数据管道
+            FileChannel channel = randomAccessFile.getChannel();
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            //将数据读入 ByteBuffer
+            channel.read(byteBuffer);
+            //移动 ByteBuffer position
+            byteBuffer.flip();
+            //解码获取byteBuffer中读取的数据
+            System.out.println(Charset.defaultCharset().decode(byteBuffer));
+            //重置 buffer 的 position 和 limit
+            byteBuffer.clear();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //socket 服务 NIO
+    static void NIO9(){
+        try {
+            //开启Socket通道
+            ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+            //socket 端口
+            serverSocketChannel.bind(new InetSocketAddress(80));
+            //非阻塞式
+            serverSocketChannel.configureBlocking(false);
+            //获取一个监听器 观察连接
+            Selector selector = Selector.open();
+            //注册监听器 接收（变成非阻塞式）
+            serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+            while (true){
+                selector.select();
+                for (SelectionKey key :selector.keys()){
+                    //如果为接收key
+                    if(key.isAcceptable()){
+                        SocketChannel socketChannel = serverSocketChannel.accept();
+                        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+                        while(socketChannel.read(byteBuffer) != -1){
+                            //移动 ByteBuffer position
+                            byteBuffer.flip();
+                            //socket接收到什么消息则输出什么消息
+                            socketChannel.write(byteBuffer);
+                            //重置 buffer 的 position 和 limit
+                            byteBuffer.clear();
+                        }
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //OKio channel，⽽且是单向的，输⼊源叫 Source，输出⽬标叫 Sink
+    //底层也是 基于 原生 IO 的封装
+    static void OKioTest10(){
+        try (BufferedSource buffer = Okio.buffer(Okio.source(new File("./IOlib/FileOutput.txt")))){
+            System.out.println(buffer.readUtf8Line());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // OKio 复制文件
+    static void OKioCopyFile11(){
+
+        try (BufferedSource bufferSource = Okio.buffer(Okio.source(new File("./IOlib/FileOutput.txt")));
+             BufferedSink bufferedSink = Okio.buffer(Okio.sink(new File("./IOlib/OKioCopyFile1.txt")))){
+            bufferedSink.writeAll(bufferSource);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
