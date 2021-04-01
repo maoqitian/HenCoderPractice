@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.mao.gradleproject"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    //创建对应版本 在 src 目录创建对应文件添加版本差异划分
+    buildTypes {
+        //增加一个 内部版本 配置选项
+        internal{
+            initWith debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //产品维度 付费 免费 国内版本 国际版本  结合 buildTypes 则由 3*4 = 12 种 buildTypes
+    //细分版本编译维度限制
+    flavorDimensions 'pay','nation'
+    productFlavors{
+        //免费
+       free {
+           dimension 'pay'
+       }
+       //付费
+       pay{
+           dimension 'pay'
+       }
+        //国内版
+       china{
+           dimension 'nation'
+       }
+        //国际版
+       global{
+           dimension 'nation'
+       }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //compile
+}
