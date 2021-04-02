@@ -62,3 +62,8 @@ task versionFinishNotify(dependsOn : autoVersion){
         println("版本更新完成")
     }
 }
+
+
+afterEvaluate {
+    println("第二阶段配置到第三阶段执行之间")
+}

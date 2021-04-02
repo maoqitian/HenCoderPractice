@@ -1,2 +1,5 @@
 include ':app'
 rootProject.name = "GradleProject"
+
+
+println("初始化阶段到配置阶段之间执行")
