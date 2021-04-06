@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import dalvik.system.BaseDexClassLoader
 import dalvik.system.DexClassLoader
 import kotlinx.android.synthetic.main.activity_main.*
-import okio.Okio
 import okio.buffer
 import okio.sink
 import okio.source
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 if(!hotfixApk.exists()){
                     //使用 okio 复制文件到 缓存文件中
                     try {
-                        assets.open("hotfix-plugin.apk").source().buffer()
+                        assets.open("hotfix.apk").source().buffer()
                             .use { bufferSource -> hotfixApk.sink().buffer().use {
                                     bufferedSink -> bufferedSink.writeAll(bufferSource) }
                             }
