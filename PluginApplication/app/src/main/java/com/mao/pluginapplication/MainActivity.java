@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //正经插件化 只是 方便项目扩展模块动态变化部署
-        
+
         //通过 DexClassLoader 来加载插件中的 dex 文件
 
         //创建缓存 apk 文件
