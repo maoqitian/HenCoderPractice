@@ -2,21 +2,30 @@ package com.mao.pluginhotfixproject
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import dalvik.system.BaseDexClassLoader
-import dalvik.system.DexClassLoader
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.*
+import okio.Okio
 import okio.buffer
 import okio.sink
-import okio.source
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
 
+
 class MainActivity : AppCompatActivity(),View.OnClickListener {
+
+
+    //远端 hotfix 地址 http://pic.cdn.liangtv.cn/group1/M00/00/00/rB9ODWBtJXCASUouAAACvEi3VPk892.dex
+    private lateinit var hotfixApk :File
+
+    val remoteUrl = "http://pic.cdn.liangtv.cn/group1/M00/00/00/rB9ODWBtJXCASUouAAACvEi3VPk892.dex"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //热修复文件路径
+        hotfixApk = File("$cacheDir/hotfix-classes.dex")
 
         showMessage.setOnClickListener(this)
         loadHotfix.setOnClickListener(this)
@@ -33,12 +42,11 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             R.id.loadHotfix ->{
                 //加载修复的热更新 文件
                 //创建缓存 apk 文件
-                val hotfixApk =
-                    File("$cacheDir/hotfix.apk")
-                if(!hotfixApk.exists()){
+                //直接加载本地文件
+                /*if(!hotfixApk.exists()){
                     //使用 okio 复制文件到 缓存文件中
                     try {
-                        assets.open("hotfix.apk").source().buffer()
+                        assets.open("hotfix-classes.dex").source().buffer()
                             .use { bufferSource -> hotfixApk.sink().buffer().use {
                                     bufferedSink -> bufferedSink.writeAll(bufferSource) }
                             }
@@ -47,42 +55,42 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                     } catch (e: IOException) {
                         e.printStackTrace()
                     }
-                }
+                }*/
+                //可以选择从网络加载
+                val okHttpClient = OkHttpClient()
 
+                val request = Request.Builder().url(remoteUrl).build()
 
+                okHttpClient.newCall(request).enqueue(object :Callback{
+                    override fun onFailure(call: Call, e: IOException) {
+                        Toast.makeText(this@MainActivity,"hot fix 文件下载失败",Toast.LENGTH_SHORT).show()
+                    }
 
-                //获取 当前类的 classloader
-                var originalClassLoader = classLoader
-                //创建加载的classLoader
-                var dexClassLoader = DexClassLoader(hotfixApk.path, cacheDir.path, null, null)
+                    override fun onResponse(call: Call, response: Response) {
+                        /*val bufferSink = hotfixApk.sink().buffer()
+                        bufferSink.write(response.body!!.bytes())*/
 
-                var loadClass = BaseDexClassLoader::class.java
-                //反射获取 ClassLoader 的 pathList 字段 然后替换 dexElements 字段
-                val pathListField = loadClass.getDeclaredField("pathList")
-                //解除限制
-                pathListField.isAccessible = true
-                //获取 自行创建的 ClassLoader  pathList 对象
-                val pathListObject = pathListField.get(dexClassLoader)
-                //获取 pathListClass
-                val pathListClass =  pathListObject.javaClass
-                //获取 dexElements字段
-                val dexElementsField = pathListClass.getDeclaredField("dexElements")
-                dexElementsField.isAccessible = true
-                //dexElements对象
-                val dexElementsObject =  dexElementsField.get(pathListObject)
+                        try {
+                            hotfixApk.sink().buffer()
+                                .use { sink -> sink.write(response.body!!.bytes()) }
+                        } catch (e: IOException) {
+                            e.printStackTrace()
+                        }
 
-                //获取原本的 ClassLoader  pathList 对象
-                val originalPathListObject = pathListField.get(originalClassLoader)
-
-                //替换 dexElements字段
-                dexElementsField.set(originalPathListObject,dexElementsObject)
-
+                        v.post {
+                            Toast.makeText(this@MainActivity, "hot fix 补丁文件加载成功", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                })
             }
             R.id.deleteHotfix ->{
-
+                if (hotfixApk.exists()){
+                    hotfixApk.delete()
+                }
             }
             R.id.killApplication ->{
-
+                android.os.Process.killProcess(android.os.Process.myPid())
             }
         }
     }

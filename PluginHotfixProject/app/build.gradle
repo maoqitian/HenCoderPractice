@@ -36,5 +36,28 @@ dependencies {
 
     implementation 'com.squareup.okio:okio:2.10.0'
 
+    implementation 'com.squareup.okhttp3:okhttp:4.4.1'
+}
 
+//使用 自定义 task 自动生成 dex 修复包
+def patchPath = 'com/mao/pluginhotfixproject/TitleUtils'
+
+task hotfix {
+    doLast {
+        exec {
+            commandLine 'rm', '-r', './build/patch'
+        }
+        exec {
+            commandLine 'mkdir', './build/patch'
+        }
+        exec {
+            commandLine 'javac', "./src/main/java/${patchPath}.java", '-d', './build/patch'
+        }
+        exec {
+            commandLine '/d/SDK/build-tools/29.0.3/d8', "./build/patch/${patchPath}.class", '--output', './build/patch'
+        }
+        exec {
+            commandLine 'mv', "./build/patch/classes.dex", './build/patch/hotfix.dex'
+        }
+    }
 }
