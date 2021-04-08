@@ -61,7 +61,7 @@ class MyApplication :Application() {
             )
         }
 
-        //替换 将 hotfix dexElements 值加入原本的 dexElements 中
+        //替换 将 hotfix dexElements 值替换原本的 dexElements 中
         dexElementsField[originalPathListObject] = concatDexElementsObject
 
        }

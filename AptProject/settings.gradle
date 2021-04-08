@@ -1,0 +1,6 @@
+include ':lib-annotation-process'
+include ':lib-annotation'
+include ':lib-binging'
+include ':libreflection'
+include ':app'
+rootProject.name = "AptProject"
