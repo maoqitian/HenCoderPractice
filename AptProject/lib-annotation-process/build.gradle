@@ -1,12 +1,15 @@
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
+//使用 kapt 让注解支持 kotlin
+apply plugin: 'kotlin-kapt'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.squareup:javapoet:1.11.1'
-    implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    annotationProcessor "com.google.auto.service:auto-service:1.0-rc6"
+    implementation 'com.squareup:javapoet:1.12.1'
+    /*implementation 'com.google.auto.service:auto-service:1.0-rc6'
+    kapt "com.google.auto.service:auto-service:1.0-rc6"*/
     implementation project(':lib-annotation')
 }
 

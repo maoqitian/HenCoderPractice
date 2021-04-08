@@ -54,7 +54,7 @@ task hotfix {
             commandLine 'javac', "./src/main/java/${patchPath}.java", '-d', './build/patch'
         }
         exec {
-            commandLine '/d/SDK/build-tools/29.0.3/d8', "./build/patch/${patchPath}.class", '--output', './build/patch'
+            commandLine '/Users/maoqitian/Library/Android/sdk/build-tools/29.0.3/d8', "./build/patch/${patchPath}.class", '--output', './build/patch'
         }
         exec {
             commandLine 'mv', "./build/patch/classes.dex", './build/patch/hotfix.dex'

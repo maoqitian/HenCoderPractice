@@ -3,8 +3,9 @@ package com.mao.aptproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.mao.libreflection.BindView
-import com.mao.libreflection.ReflectionBinging
+import com.mao.lib_annotation.BindView
+import com.mao.library_binging.ViewBing
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         //使用反射的方式来处理注解完成 view 的自动绑定
 
-        ReflectionBinging.bind(this)
+        ViewBing.bind(this)
 
         textView.text = "adadafaaa"
     }
