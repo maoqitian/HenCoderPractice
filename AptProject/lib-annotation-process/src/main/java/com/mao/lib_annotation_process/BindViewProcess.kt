@@ -1,4 +1,5 @@
 package com.mao.lib_annotation_process
+import com.google.auto.service.AutoService
 import com.mao.lib_annotation.BindView
 import com.squareup.javapoet.ClassName
 import com.squareup.javapoet.JavaFile
@@ -18,8 +19,8 @@ import javax.lang.model.element.TypeElement
  * @date 2021/4/08 0018 18:09
  */
 
-//@AutoService(Processor::class) // 自动生成META-INF/services 目录文件夹 kotlin 代码没用
-class BindViewProcess :AbstractProcessor(){
+@AutoService(Processor::class) // 自动生成META-INF/services 目录文件夹 kotlin 代码没用
+class BindViewProcess : AbstractProcessor(){
 
     lateinit var filer: Filer
     //初始化调用
