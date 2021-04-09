@@ -16,10 +16,11 @@ import javax.lang.model.element.TypeElement
 /**
  * @author maoqitian
  * @Description: 注解处理器 处理 {@link com.mao.lib_annotation.BindView} 注解，自动生成对应的 Binding类
+ * 生成类路径 build/generated/source/kapt/debug/com/mao/aptproject
  * @date 2021/4/08 0018 18:09
  */
 
-@AutoService(Processor::class) // 自动生成META-INF/services 目录文件夹 kotlin 代码没用
+@AutoService(Processor::class) // 自动生成META-INF/services 目录文件夹
 class BindViewProcess : AbstractProcessor(){
 
     lateinit var filer: Filer

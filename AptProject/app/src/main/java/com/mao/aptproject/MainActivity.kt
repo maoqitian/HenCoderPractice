@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         //使用反射的方式来调用 apt 生成的View绑定类的构造方法，构造方法中写入了绑定代码
 
         ViewBing.bind(this)
-        
+
         constraintLayout.setBackgroundColor(Color.DKGRAY)
         textView.text = "adadafaaa"
     }
