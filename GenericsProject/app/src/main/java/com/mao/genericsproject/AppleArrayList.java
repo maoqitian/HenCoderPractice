@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author maoqitian
@@ -19,4 +20,15 @@ class AppleArrayList<T> extends ArrayList {
 
     //下边界
     ArrayList<? super AppCompatTextView> fruitList2 = new ArrayList<TextView>();
+
+
+    /**
+     * 泛型方法 将 对应希望类型的 item 加入到 对应类型 list 集合中
+     * @param item
+     * @param list
+     * @param <A>
+     */
+    public <A> void merge(A item, List<A> list){
+          list.add(item);
+    }
 }
