@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             //解除调用私有限制
             declaredConstructor.setAccessible(true);
             //构造方法调用
-            Object constructor = declaredConstructor.newInstance();
+            Object constructor = declaredConstructor.newInstance(   );
             //获取需要调用的方法
             Method testReflection = reflectionUtils.getDeclaredMethod("testReflection");
             //解除方法调用私有限制

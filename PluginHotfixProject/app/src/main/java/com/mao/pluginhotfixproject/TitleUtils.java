@@ -8,7 +8,7 @@ package com.mao.pluginhotfixproject;
 public class TitleUtils {
 
      public static String getHotfixMessage(){
-         return "现在我是 dex 修复的信息";
+         return "出现BUG的信息";
      }
 
 }

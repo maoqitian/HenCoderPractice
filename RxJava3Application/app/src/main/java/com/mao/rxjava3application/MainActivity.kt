@@ -2,13 +2,19 @@ package com.mao.rxjava3application
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mao.rxjava3application.api.Api
+import com.mao.rxjava3application.model.ResponseData
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         //创建 retrofit 对象
 
-        /*val retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
                 .baseUrl("https://api.github.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build()
@@ -32,14 +38,14 @@ class MainActivity : AppCompatActivity() {
         api.getRepo("maoqitian")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object :SingleObserver<List<ResponseData>>{
+                .subscribe(object : SingleObserver<List<ResponseData>> {
                     override fun onSuccess(t: List<ResponseData>) {
                         println(t[0].name)
                     }
 
                     override fun onSubscribe(d: Disposable) {
                         textView.text = "正在请求"
-                        disposable = d
+                        //disposable = d
                         //this@MainActivity.disposable = disposable
                     }
 
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                         textView.text = e.message ?: e.javaClass.name
                     }
 
-                })*/
+                })
 
 
 

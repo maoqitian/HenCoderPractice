@@ -51,6 +51,12 @@ android {
     }
 }
 
+gradle.taskGraph.whenReady {
+    it.allTasks.each { task ->
+        println "${task.name} : ${task.class.name - '_Decorated'}"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -62,4 +68,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //compile
+    //compileOnly "com.android.tools.build:gradle:4.0.0"
+
 }
