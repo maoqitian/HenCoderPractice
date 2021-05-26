@@ -3,7 +3,7 @@ package com.mao.libreflection
 import android.app.Activity
 
 /**
- * @Description:
+ * @Description: 手动遍历 Activity 的成员变量 获取注解值来进行绑定（手动调用）
  * @author maoqitian
  * @date 2021/4/8 0008 13:28
  */

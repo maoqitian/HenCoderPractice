@@ -30,7 +30,7 @@ class BindViewProcess : AbstractProcessor(){
         filer = processingEnv.filer
     }
 
-
+    //设置支持的注解
     override fun getSupportedAnnotationTypes(): MutableSet<String> {
         val linkedHashSet = LinkedHashSet<String>()
         linkedHashSet.add(BindView::class.java.canonicalName)
@@ -44,7 +44,7 @@ class BindViewProcess : AbstractProcessor(){
     //注解处理 自动生成 binding View 绑定类
     override fun process(annotations: MutableSet<out TypeElement>, roundEnv: RoundEnvironment): Boolean {
 
-        //遍历根元素
+        //遍历根元素 Activity
         roundEnv.rootElements.forEach { element ->
             //包名
             val packageStr = element.enclosingElement.toString()

@@ -26,5 +26,18 @@ class MainActivity : AppCompatActivity() {
 
         constraintLayout.setBackgroundColor(Color.DKGRAY)
         textView.text = "adadafaaa"
+
+        test()
+    }
+
+    //过时废弃注解
+    @Deprecated("this fun is Deprecated, please use {@link #hehe()}")
+    fun test(){
+
+    }
+
+
+    fun hehe(){
+
     }
 }

@@ -7,6 +7,7 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //自动生成 Java 代码库
     implementation 'com.squareup:javapoet:1.12.1'
     implementation 'com.google.auto.service:auto-service:1.0-rc6'
     //使用 kapt 让注解扫描针对 kotlin 实现的 AbstractProcessor 生效

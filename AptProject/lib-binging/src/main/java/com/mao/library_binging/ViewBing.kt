@@ -3,7 +3,8 @@ package com.mao.library_binging
 import android.app.Activity
 
 /**
- * @Description: View findViewById 的自动绑定 对于 Activity
+ * @Description: View findViewById 的自动绑定 对于 Activity，
+ * 反射获取 AbstractProcessor 自动生成的 XXXXActivityBinding 类，调用它的构造方法进行自动绑定
  * @author maoqitian
  * @date 2021/4/8 0008 17:50
  */
