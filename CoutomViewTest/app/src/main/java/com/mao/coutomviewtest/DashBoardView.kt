@@ -20,6 +20,8 @@ private var RADIUS = 150f.dptopx
 
 private var LENGTH = 120F.dptopx
 
+// 指针 指向刻度
+private var MARK_INDEX = 3
 
 //圆弧开角度值
 var OPEN_ANGLE = 120f
@@ -55,11 +57,13 @@ class DashBoardView(context: Context?, attr: AttributeSet?) : View(context,attr)
         super.onSizeChanged(w, h, oldw, oldh)
         //弧度 使用 path 方便测量
         path.reset()
+        //画弧
         path.addArc(width/2f - RADIUS,height/2f-RADIUS,width/2f + RADIUS,height/2f+RADIUS,
             90f + OPEN_ANGLE / 2f , 360 - OPEN_ANGLE )
         //获取长度才好测量间隔
         var pathMeasure = PathMeasure(path,false)
         //获取长度 设置间隔 pathMeasure.length/20f  20个间隔
+        // pathMeasure.length- DASH_WIDTH 刻度从零开始 先减去一个刻度在除保证 刻度铺满圆弧
         patheffect = PathDashPathEffect(dash,(pathMeasure.length- DASH_WIDTH)/20f,0f,PathDashPathEffect.Style.ROTATE)
 
     }
@@ -76,11 +80,13 @@ class DashBoardView(context: Context?, attr: AttributeSet?) : View(context,attr)
         canvas.drawPath(path,paint)
         paint.pathEffect = null
 
-        //画指针 通过三角函数 计算 x y 终点位置 90+ OPEN_ANGLE/2f + (360 - OPEN_ANGLE)/20f 初始角度 加 20刻度每个刻度的角度就是 指针的角度
+        //画指针
+        //起点为圆心
+        //终点 通过三角函数 计算 x y 终点位置 90+ OPEN_ANGLE/2f + (360 - OPEN_ANGLE)/20f 初始角度 加 20刻度每个刻度的角度就是 指针的角度
         //计算刻度 2
         canvas.drawLine(width/2f,height/2f,
-            width/2+ LENGTH * cos(indexToRadians(2)).toFloat(),
-            height/2+ LENGTH * sin(indexToRadians(2)).toFloat()
+            width/2+ LENGTH * cos(indexToRadians(MARK_INDEX)).toFloat(),
+            height/2+ LENGTH * sin(indexToRadians(MARK_INDEX)).toFloat()
             ,paint)
     }
 

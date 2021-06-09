@@ -17,6 +17,9 @@ import kotlin.math.sin
 //圆弧半径
 private var RADIUS = 100f.dptopx
 
+//被点击显示的扇形图 index
+var clickIndex = 1
+
 //角度
 private val ANGLES = floatArrayOf(60f, 30f, 180f, 90f)
 //颜色值
@@ -47,7 +50,7 @@ class PieView(context: Context?, attr: AttributeSet?) : View(context,attr) {
             paint.color = COLORS[index]
 
 
-            if (index == 3 ){
+            if (index == clickIndex ){
                 canvas.save()
                 //偏移 还是计算三角函数 正弦余弦
                 //偏移 OFFSET_LENGTH * cos(Math.toRadians(startAngle + angle / 2f.toDouble())).toFloat()
@@ -63,7 +66,7 @@ class PieView(context: Context?, attr: AttributeSet?) : View(context,attr) {
             //每次画完一个扇形更新 初始化角度值
             startAngles += angle
 
-            if (index == 3){
+            if (index == clickIndex){
                 canvas.restore()
             }
         }
