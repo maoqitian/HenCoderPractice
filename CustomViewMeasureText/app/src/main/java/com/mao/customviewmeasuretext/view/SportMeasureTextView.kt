@@ -30,6 +30,9 @@ class SportMeasureTextView(context: Context,attributeSet: AttributeSet):View(con
         textSize = 110.dp
         typeface = ResourcesCompat.getFont(context, R.font.font)
         isFakeBoldText = true
+        /**
+         * 文字水平居中
+         */
         textAlign = Paint.Align.CENTER
     }
 
@@ -54,20 +57,30 @@ class SportMeasureTextView(context: Context,attributeSet: AttributeSet):View(con
         canvas.drawArc(width/2f- RADIUS,height/2f- RADIUS,width/2f+ RADIUS,height/2f+ RADIUS,
             -90f,255f,false,paint)
 
-
+        /**
+         * 文字绘制 1  居中
+         */
+        //改变画笔
         paint.style = Paint.Style.FILL
         paint.color = Color.RED
 
         //居中的纵向测量
-
+        /**
+         * 静态文字可以使用 上下边界平局值来纠正高度的偏移 (textBoundsRect.top + textBoundsRect.bottom)/2
+         */
         //通过 getTextBounds 来获取文字边界
-        //paint.getTextBounds(DRAW_TEXT,0,DRAW_TEXT.length,textBoundsRect)
-        //静态文字可以使用 上下边界平局值来纠正高度的偏移 (textBoundsRect.top + textBoundsRect.bottom)/2
+        /*paint.getTextBounds(DRAW_TEXT,0,DRAW_TEXT.length,textBoundsRect)
+        canvas.drawText(DRAW_TEXT,width/2f,height/2f - (textBoundsRect.top + textBoundsRect.bottom)/2,paint)*/
+
+
         //动态文字 则使用 FontMetrics
         paint.getFontMetrics(textFontMetrics)
         canvas.drawText(DRAW_TEXT,width/2f,height/2f - (textFontMetrics.ascent + textFontMetrics.descent)/2,paint)
 
-        //文字贴边 左右对齐
+        /**
+         * 文字绘制2 文字贴边 左右对齐
+         */
+
        /* paint.textAlign = Paint.Align.LEFT
 
         paint.getFontMetrics(textFontMetrics)
