@@ -68,7 +68,7 @@ class TextAnimatorView (context: Context, attr: AttributeSet) : View(context,att
 
 class NBAStarEvaluator : TypeEvaluator<String>{
     override fun evaluate(fraction: Float, startValue: String, endValue: String): String {
-
+        //通过 数组 index 变化 来 改变字符串 index
         val startIndex = NBAAllStars.indexOf(startValue)
         val endIndex = NBAAllStars.indexOf(endValue)
 
