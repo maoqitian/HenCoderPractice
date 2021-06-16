@@ -37,8 +37,6 @@ class TagFlowLayout(context: Context?, attrs: AttributeSet?) : ViewGroup(context
         //遍历子View
         for ((index, child) in children.withIndex()) {
 
-            //获取 xml 设置布局参数
-            val childLayoutParams = child.layoutParams
             //使用系统提供的方法来进行测量
             measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, heightUsed)
 
@@ -80,6 +78,7 @@ class TagFlowLayout(context: Context?, attrs: AttributeSet?) : ViewGroup(context
 
         }
 
+        //最终算出整个ViewGroup 的宽高保存
         val realWith = widthUsed
         //总高度 等于使用高度加上当前行高度
         val realHeight = heightUsed + lineMaxHeight
