@@ -8,6 +8,7 @@ import android.os.SystemClock
 import android.view.SurfaceHolder
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.concurrent.thread
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
                 windowManager.addView(button,WindowManager.LayoutParams())
                 button.setOnClickListener {
                     button.text = "${Thread.currentThread()},${SystemClock.uptimeMillis()}"
+                    // 在子线程中弹出 toast 也需要 执行 Looper.prepare()
+                    Toast.makeText(this,"我再子线程中被点击了",Toast.LENGTH_SHORT).show()
                 }
                 Looper.loop()
             }
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity() {
          * 然后调用 invalidate方法，该方法没有检查线程判断
          * 如果去除硬件加速则会报错
          * android:hardwareAccelerated="false"
-         * 自定义 View 设置了大小也同时开启硬件加速也同样
+         * 自定义 View 设置了大小也同时开启硬件加速也同样使用子线程更新
          */
         tvText.setOnClickListener {
             //直接子线程更新

@@ -62,6 +62,11 @@ class MaterialEditText(context: Context,attributeSet: AttributeSet) :
     init {
         paint.textSize = HINT_TEXT_SIZE
 
+        //遍历获取所有的属性值
+        for(i in 0 until  attributeSet.attributeCount){
+            println("Attrs：Key ${attributeSet.getAttributeName(i)}, value : ${attributeSet.getAttributeValue(i)}")
+        }
+
         //通过 typedArray 获取自定义属性值
         var typeArray = context.obtainStyledAttributes(attributeSet, intArrayOf(R.attr.useFloatLabel))
 
@@ -92,8 +97,8 @@ class MaterialEditText(context: Context,attributeSet: AttributeSet) :
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
-        paint.alpha = (floatingLabelFraction * 0xff).toInt()
+        //通过改变透明度来改变显示效果
+          paint.alpha = (floatingLabelFraction * 0xff).toInt()
         //动态计算高度 根据动画
         val currentval = VERTICAL_OFFSET + VERTICAL_OFFSET * (1- floatingLabelFraction)
         if(!hint.isNullOrEmpty() && useFloatLabel){
