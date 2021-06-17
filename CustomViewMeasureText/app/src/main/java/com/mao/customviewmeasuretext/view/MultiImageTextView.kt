@@ -70,13 +70,13 @@ class MultiImageTextView (context: Context, attributeSet: AttributeSet): View(co
 
         //使用 FontMetrics 测量文字边界
         paint.getFontMetrics(fontMetrics)
-        //使用breakText 是文字换行
+        //使用 breakText 文字换行
         val measureFloatWith = floatArrayOf(0f)
         //每一行初始位置
         var textLineStart = 0
         //每一行需要绘制的长度
         var count:Int
-        //每一个便宜位置，初始为减去上边界高度
+        //每一个偏移位置，初始为减去上边界高度
         var textLineOffset = -fontMetrics.top
 
         //每一行宽度 需要判断是否与图片重合
@@ -93,7 +93,7 @@ class MultiImageTextView (context: Context, attributeSet: AttributeSet): View(co
             }
             //测量 换行
             count =  paint.breakText(text,textLineStart,text.length,true,textMaxWith,measureFloatWith)
-            //绘制
+            //绘制 绘制开始 与 绘制结束
             canvas.drawText(text,textLineStart,textLineStart + count,0f,textLineOffset,paint)
             //更新初始位置
             textLineStart += count

@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * AnimatorSet 属性动画组合
+         * 结合 camera 翻转结合变化动画
          */
 
         //图片几何动画变化
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         val flipRotateHolder = PropertyValuesHolder.ofFloat("flipRotate",360f)
         val bottomFlipHolder = PropertyValuesHolder.ofFloat("bottomFlip",-60f)
 
-        val animator = ObjectAnimator.ofPropertyValuesHolder(view,topFlipHolder,flipRotateHolder,bottomFlipHolder)
+        val animator = ObjectAnimator.ofPropertyValuesHolder(cameraView,topFlipHolder,flipRotateHolder,bottomFlipHolder)
         animator.duration = 3000
         animator.startDelay= 500
         animator.start()*/
@@ -90,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         val keyframe4 = Keyframe.ofFloat(0.9f,0.7f*translationLength) //减速
         val keyframe5 = Keyframe.ofFloat(1f,1f*translationLength)
         val keyframeHolder = PropertyValuesHolder.ofKeyframe("translationX",keyframe1,keyframe2,keyframe3,keyframe4,keyframe5)
-        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(view,keyframeHolder)
+        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(circleView,keyframeHolder)
         objectAnimator.duration = 3000
         objectAnimator.startDelay= 500
         objectAnimator.start()*/

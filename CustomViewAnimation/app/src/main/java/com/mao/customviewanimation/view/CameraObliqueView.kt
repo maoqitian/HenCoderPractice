@@ -87,7 +87,7 @@ class CameraObliqueView (context: Context, attributeSet: AttributeSet): View(con
         canvas.withSave {
             canvas.translate(BITMAP_PADDING+BITMAP_WIDTH/2,BITMAP_PADDING+BITMAP_WIDTH/2)
             canvas.rotate(-flipRotate)
-            //保存状态
+            //camera 保存状态 保证每次旋转都是从 零 开始
             camera.save()
             //下方翻折角度，属性动画 每次重绘都需要进行变化调用
             camera.rotateX(bottomFlip)
