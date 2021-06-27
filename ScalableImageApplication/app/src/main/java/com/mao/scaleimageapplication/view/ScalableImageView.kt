@@ -26,7 +26,7 @@ import dp
  * @date 2021/3/16 0016 16:04
  */
 
-//增加放大系数
+//增加放大系数 让放大状态可以上下左右都可以有空间滑动
 const val EXTRA_SCALE_FRACTION = 1.5F
 
 class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, attrs){
@@ -94,7 +94,7 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
         if (bitmapImage.width/bitmapImage.height.toFloat() > width/height.toFloat()){
             //图片宽高比 大于屏幕宽高比
             minScale = width / bitmapImage.width.toFloat()
-            //增加放大系数
+            //增加放大系数 让放大状态可以上下左右都可以有空间滑动
             maxScale = height / bitmapImage.height.toFloat() * EXTRA_SCALE_FRACTION
         }else {
             minScale = height / bitmapImage.height.toFloat()
@@ -151,6 +151,8 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
     }
 
 
+    //处理偏移
+    //保证偏移在固定放大区域而不至于可以无限偏移出屏幕
     //修正放大缩小的空白区域
     private fun fixBlankOffset() {
         //同时还需限制边界值 上下左右边界 应为 图的宽高 减去 View 宽度 除2 (偏移修正)
@@ -229,7 +231,7 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
                 //获取偏移值
                 offsetX -= distanceX
                 offsetY -= distanceY
-                //修正空白区域
+                //修正空白区域 处理偏移
                 fixBlankOffset()
                 invalidate()
             }
