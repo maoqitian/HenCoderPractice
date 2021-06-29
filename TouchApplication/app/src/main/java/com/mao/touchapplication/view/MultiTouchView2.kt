@@ -53,13 +53,13 @@ class MultiTouchView2(context: Context, attrs: AttributeSet) : View(context, att
         //is
         val isPointerUp = event.actionMasked == MotionEvent.ACTION_POINTER_UP
         for (i in 0 until event.pointerCount){
-            //需要去除向上抬起的动作事件
+            //需要去除向上抬起的额外偏移动作事件
             if(!(isPointerUp && i == event.actionIndex)){
                 sumX = event.getX(i)
                 sumY = event.getY(i)
             }
         }
-        //同时总数分母也要减一
+        //同时总数分母也要减一（向上抬起的额外偏移动作事件）
         if(isPointerUp){
             pointerCount --
         }

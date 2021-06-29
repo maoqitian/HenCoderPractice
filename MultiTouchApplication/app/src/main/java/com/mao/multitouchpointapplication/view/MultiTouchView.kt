@@ -1,4 +1,4 @@
-package com.mao.touchapplication.view
+package com.mao.multitouchpointapplication.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,75 +10,75 @@ import dp
 import getBitmap
 
 /**
- * @Description: 接力型 触摸 第二根手指触摸的时候接力 第一个手指触摸的事件
+ * @Description: 多点触控 接力型
  * @author maoqitian
- * @date 2021/3/18 0018 10:40
+ * @date 2021/6/28 0028 11:24
  */
-class TouchView1(context: Context, attrs: AttributeSet) : View(context, attrs) {
-
+class MultiTouchView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     val bitmapImage = getBitmap(resources,250.dp.toInt())
 
-    //按下坐标
-    var downX = 0f
-    var downY = 0f
-    //偏移坐标
+
     var offsetX = 0f
     var offsetY = 0f
 
-    //初始偏移
+    var downX = 0f
+    var downY = 0f
+
     var originalOffsetX = 0f
     var originalOffsetY = 0f
 
-    //当前拖动的手指
+    //目前第几个手指起作用 id
     var trackId = 0
+
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        //先绘制一个最简单的图形
+        //偏移量需要减去初始按下位置
         canvas.drawBitmap(bitmapImage,offsetX,offsetY,paint)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
+
         when(event.actionMasked){
-            MotionEvent.ACTION_DOWN ->{
-               //获取 初始按下 id
-               trackId = event.getPointerId(0)
-               downX = event.x
-               downY = event.y
-               //记录按下图片的初始偏移 保证第二次按的时候移动正确
+            MotionEvent.ACTION_DOWN -> {
+                //记录下第一次按下 id
+                trackId = event.getPointerId(0)
+                downX = event.x
+                downY = event.y
+                //记录初始偏移
                 originalOffsetX = offsetX
                 originalOffsetY = offsetY
             }
-            MotionEvent.ACTION_POINTER_DOWN ->{
-               //获取第二根手指按下的 id
+            MotionEvent.ACTION_POINTER_DOWN->{
+                //更新其他手指按下 id
                 val actionIndex = event.actionIndex
                 trackId = event.getPointerId(actionIndex)
-                //根据 event.findPointerIndex(trackId) 获取当前的 第二根手指按下值
                 downX = event.getX(actionIndex)
                 downY = event.getY(actionIndex)
+                //记录初始偏移
                 originalOffsetX = offsetX
                 originalOffsetY = offsetY
             }
-            MotionEvent.ACTION_MOVE ->{
-                //无法获取当前正在移动的手指，伪命题
-                //减去按下的值保证跟随手指移动
-                //到此移动实时获取正在移动手指的 index
-                var currentIndex = event.findPointerIndex(trackId)
-                offsetX = event.getX(currentIndex) - downX + originalOffsetX
-                offsetY = event.getY(currentIndex) - downY + originalOffsetY
+            MotionEvent.ACTION_MOVE -> {
+               //移动的时候拿到移动手指 index 获取对应坐标 多点触控
+                val currMoveIndex = event.findPointerIndex(trackId)
+                offsetX = event.getX(currMoveIndex) - downX + originalOffsetX
+                offsetY = event.getY(currMoveIndex) - downY + originalOffsetY
+                //刷新
                 invalidate()
             }
             MotionEvent.ACTION_POINTER_UP->{
                 //判断当前离开手指是否是正在使用的手指 id
-                //当前index
+
                 val actionIndex = event.actionIndex
                 val indexId = event.getPointerId(actionIndex)
                 // 如果是该手指抬起 则需要找到一根手指进行接棒
-                if(trackId == indexId){
+                if(indexId == trackId){
                     //指派新的 pointer 来接管事件
-                    //抬起 id 是正在追踪的 id
                     var newIndex = if(indexId == event.pointerCount -1){
                         //当前为最后一个 index 则需向前指派一位
                         event.pointerCount - 2
@@ -93,13 +93,13 @@ class TouchView1(context: Context, attrs: AttributeSet) : View(context, attrs) {
                     originalOffsetX = offsetX
                     originalOffsetY = offsetY
                 }
-            }
-            MotionEvent.ACTION_UP ->{
 
             }
-
+            MotionEvent.ACTION_UP-> {
+                //最后一根手指抬起无需考虑接棒
+            }
         }
+
         return true
     }
-
 }

@@ -1,6 +1,7 @@
 package com.mao.scaleimageapplication.view
 
 import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -69,7 +70,7 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
     private val  scaleAnimation :ObjectAnimator = ObjectAnimator.ofFloat(this,"currentScaleFraction",minScale,maxScale)
     /* by lazy {
         ObjectAnimator.ofFloat(this,"currentScaleFraction",minScale,maxScale)
-            //双击的时候获取偏移位置修正 所以不用在进行修正
+            //双击的时候 onDoubleTap 获取偏移位置修正 所以不用在进行修正
             .apply {
             doOnEnd {
                 //动画缩回原来大小 执行结束 修正偏移值
@@ -114,7 +115,7 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
         //逆向思路
         // 缩放系数 当前值减去最小值 / 最大值 减去最小值
         val scaleFraction = (currentScaleFraction - minScale)/(maxScale - minScale)
-        //使用 translate 来进行移动
+        //使用 translate 来进行移动 加入 scaleFraction 增加动画影响力
         canvas.translate(offsetX * scaleFraction,offsetY * scaleFraction)
         //参照动画 TypeEvaluator 中的算法实现 初始值 减去 （最大值 - 初始值）* 变化值（Fraction）
         //val scale = minScale + (maxScale - minScale) * scaleFraction
@@ -286,7 +287,7 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
     inner class MaoScaleGestureListener : ScaleGestureDetector.OnScaleGestureListener{
 
         override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
-            //修正初始偏移 让其跟随手指移动
+            //修正初始偏移 让其跟随手指移动 detector.focusX 捏撑手指落点
             offsetX = (detector.focusX - width/2f ) * (1 - maxScale / minScale)
             offsetY = (detector.focusY - height/2f ) * (1 - maxScale / minScale)
             return true
@@ -304,11 +305,11 @@ class ScalableImageView(context: Context, attrs: AttributeSet) : View(context, a
             // 原始值 乘 系数
             var tempCurrentScaleFraction = currentScaleFraction * detector.scaleFactor
             //限制 currentScaleFraction 在 大小范围 是否与上次值比较,防止只要一捏撑滑动就缩放
-            if(tempCurrentScaleFraction < minScale || tempCurrentScaleFraction>maxScale){
-                return false
+            return if(tempCurrentScaleFraction < minScale || tempCurrentScaleFraction>maxScale){
+                false
             }else{
                 currentScaleFraction *= detector.scaleFactor
-                return true
+                true
             }
         }
 
