@@ -28,7 +28,8 @@ class LessonActivity : AppCompatActivity(), BaseView<LessonPresenter?>, Toolbar.
         findViewById<RecyclerView>(R.id.list).run {
             layoutManager = LinearLayoutManager(this@LessonActivity)
             adapter = lessonAdapter
-            addItemDecoration(DividerItemDecoration(this@LessonActivity, LinearLayout.VERTICAL))}
+            addItemDecoration(DividerItemDecoration(this@LessonActivity, LinearLayout.VERTICAL))
+        }
 
         refreshLayout = findViewById(R.id.swipe_refresh_layout)
         refreshLayout.setOnRefreshListener { presenter.fetchData() }
