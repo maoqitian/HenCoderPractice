@@ -30,6 +30,7 @@ class DragAddTextLayout(context: Context, attrs: AttributeSet) : ConstraintLayou
     inner class DragAddTexListener : OnDragListener {
         override fun onDrag(v: View, event: DragEvent): Boolean {
             when(event.action){
+                //在区域落下
                 DragEvent.ACTION_DROP ->
                     if(v is LinearLayout){
                         val textView = TextView(context)

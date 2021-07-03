@@ -13,6 +13,6 @@ class BaseApplication : Application() {
         @JvmStatic
         @get:JvmName("currentApplication") //外部调用可以直接获取它
         lateinit var currentApplication: Context
-         private set
+         private set //让外部不能调用set 方法
     }
 }

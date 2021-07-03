@@ -11,8 +11,14 @@ import com.example.app.widget.CodeView
 import com.example.core.utils.CacheUtils
 import com.example.core.utils.toast
 import com.example.lesson.LessonActivity
+import okhttp3.Request
+import okhttp3.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    // 函数类型声明 （传入参数）-> 返回参数
+    lateinit var call : (request:Request) -> Response
+
     private val usernameKey = "username"
     private val passwordKey = "password"
     private var et_username: EditText? = null
