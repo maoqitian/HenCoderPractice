@@ -1,3 +1,5 @@
+import static java.lang.Thread.yield;
+
 /**
  * @Description: 线程间通信 wait() notifyAll()
  * @Author: maoqitian
@@ -48,7 +50,8 @@ public class WaitInteractionDemo implements InterfaceRun{
                 e.printStackTrace();
             }
             setName();
-        });
+        }
+        );
         thread1.start();
 
         try {
@@ -60,6 +63,9 @@ public class WaitInteractionDemo implements InterfaceRun{
         }
 
         System.out.println("主线程继续执行");
+
+        //让当前线程让出一小会时间执行其他线程操作 一般用于子线程
+        //Thread.yield();
     }
 
 }
