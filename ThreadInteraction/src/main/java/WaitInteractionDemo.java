@@ -1,7 +1,7 @@
 import static java.lang.Thread.yield;
 
 /**
- * @Description: 线程间通信 wait() notifyAll()
+ * @Description: 线程间通信 wait() 和 notify() / notifyAll() (都需要放在同步代码块里)
  * @Author: maoqitian
  * @CreateDate: 2021/7/5 23:21
  */
@@ -65,6 +65,7 @@ public class WaitInteractionDemo implements InterfaceRun{
         System.out.println("主线程继续执行");
 
         //让当前线程让出一小会时间执行其他线程操作 一般用于子线程
+        //暂时让出自己的时间片给同优先级的线程
         //Thread.yield();
     }
 
