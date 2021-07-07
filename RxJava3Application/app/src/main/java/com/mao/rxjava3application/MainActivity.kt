@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    //private var disposable: Disposable? = null
+    private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +40,12 @@ class MainActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<List<ResponseData>> {
                     override fun onSuccess(t: List<ResponseData>) {
-                        println(t[0].name)
+                        textView.text = "请求成功$t[0].name"
                     }
 
                     override fun onSubscribe(d: Disposable) {
                         textView.text = "正在请求"
-                        //disposable = d
+                        disposable = d
                         //this@MainActivity.disposable = disposable
                     }
 
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         Single.just(1)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-
+        //按照时间间隔发送一次
         Observable.interval(0, 1, TimeUnit.SECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<Long?> {
@@ -79,8 +79,8 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-   /* override fun onDestroy() {
+    override fun onDestroy() {
         disposable?.dispose()
         super.onDestroy()
-    }*/
+    }
 }
