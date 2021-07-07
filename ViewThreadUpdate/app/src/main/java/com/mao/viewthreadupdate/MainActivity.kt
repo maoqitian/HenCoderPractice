@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
         /**
-         * 方法二
-         * 将 ViewRootImpl thread 指向子线程
+         * 方法二 windowManager.addView 触发 ViewRootImpl 创建
+         * 将 ViewRootImpl thread 指向子线程 并且子线程创建对应 Looper 开启子线程消息循环
          */
        /* tvText.setOnClickListener {
             //直接子线程更新
