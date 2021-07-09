@@ -50,9 +50,9 @@ public class IOTestClass {
         //socket6();
         //socket7();
         //NIO8();
-        //NIO9();
+        NIO9();
         //OKioTest10();
-        OKioCopyFile11();
+        //OKioCopyFile11();
     }
 
 
