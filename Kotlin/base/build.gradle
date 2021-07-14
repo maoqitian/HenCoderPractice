@@ -13,10 +13,11 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'androidx.appcompat:appcompat:1.1.0'
-
-    api "com.google.code.gson:gson:2.8.5"
-    api 'com.squareup.okhttp3:okhttp:3.12.0'
-    api 'androidx.recyclerview:recyclerview:1.0.0'
+    api 'androidx.appcompat:appcompat:1.2.0'
+    api "com.google.code.gson:gson:2.8.6"
+    api 'com.squareup.okhttp3:okhttp:4.4.0'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+
 }
