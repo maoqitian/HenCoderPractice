@@ -30,11 +30,16 @@ class CircleGraphView(context: Context,attrs: AttributeSet): View(context,attrs)
         IMAGE_WIDTH + IMAGE_PADDING
     )
 
+    /*init {
+        //开启全局 layer 替换 canvas.saveLayer，优点：性能比canvas.saveLayer好 缺点：全局的，不够方便灵活
+        setLayerType(LAYER_TYPE_HARDWARE,null)
+    }*/
+
     override fun onDraw(canvas: Canvas) {
 
         //思路 先画一个圆 再画一个图像 使用 xfermode 融合使用 圆形图形和显示图像就变成圆形图像
         //需要使用 离屏缓冲来执行融合
-        //截取一段区域 离屏缓冲
+        //截取一段区域 离屏缓冲, 优点：灵活方便  缺点：比较消耗性能
         val saveLayerCount = canvas.saveLayer(rectf, null)
         //画圆
         canvas.drawOval(
