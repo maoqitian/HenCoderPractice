@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <!--指定作用的view id-->
+        <Constraint android:id="@+id/view" >
+            <!--Motion标签指定滑动动作-->
+            <Motion
+               app:pathMotionArc="flip"
+                />
+           <!--使用layout 标签来指定控件属性-->
+            <Layout
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+               />
+            <!--<CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color5"
+                />-->
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="1"/>
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/view" >
+            <Layout
+                android:layout_height="70dp"
+                android:layout_width="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="40dp"
+                android:layout_marginEnd="40dp"
+                />
+            <!--可以设置旋转和缩放-->
+            <Transform
+                android:rotation="360"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                />
+            <!--获取控件的自定义属性来改变 颜色-->
+            <!--<CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/color2"
+                />-->
+            <!--自定义饱和度值-->
+            <CustomAttribute
+                app:attributeName="Saturation"
+                app:customFloatValue="0"/>
+        </Constraint>
+
+
+    </ConstraintSet>
+
+    <!--        app:motionInterpolator="bounce" 指定动作-->
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:motionInterpolator="bounce"
+        app:duration="2000"
+        >
+        <!--支持手势拖动-->
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorSide="bottom"
+            />
+        <!--点击-->
+        <!--<OnClick/>-->
+        <!--设置关键帧-->
+
+        <KeyFrameSet>
+            <!--属性变换关键帧-->
+            <KeyAttribute
+               app:motionTarget="@id/view"
+                app:framePosition="30"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotation="180"
+                />
+            <!--位置关键帧-->
+            <!--关键帧定义动画每个阶段的动作
+        motion:motionTarget 表示关键点应用的控件
+        motion:framePosition 表示这个点处于动画进行到百分比
+        motion:keyPositionType 表示使用的坐标系，有三种选择
+        parentRelative 父容器坐标系左上角 （0，0） 右下角 （1，1）
+        deltaRelative 相对于自身的值 自身起始点的中心为原点（0，0） 终点为（1，1）
+        pathRelative 中心为原点（0，0） 终点为（1，0）
+        motion:percentX motion:percentX 关键点的（x,y）坐标
+        -->
+            <KeyPosition
+                app:motionTarget="@id/view"
+                app:framePosition="50"
+                app:percentX="0.75"
+                app:percentY="0.35"
+                app:pathMotionArc="flip"
+                app:keyPositionType="parentRelative"
+                />
+            <KeyPosition
+                app:motionTarget="@id/view"
+                app:framePosition="80"
+                app:percentX="1"
+                app:percentY="0.5"
+                app:pathMotionArc="flip"
+                app:keyPositionType="parentRelative"
+                />
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>

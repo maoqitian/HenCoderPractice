@@ -8,6 +8,9 @@ import androidx.constraintlayout.motion.widget.MotionLayout.DEBUG_SHOW_PATH
 import androidx.transition.TransitionManager
 import java.util.concurrent.atomic.AtomicInteger
 
+/**
+ * 自定义联系效果
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

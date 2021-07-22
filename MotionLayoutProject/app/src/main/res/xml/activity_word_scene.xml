@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--开始位置-->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/m" >
+            <Layout
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color2"
+                />
+        </Constraint>
+        <Constraint android:id="@+id/a" >
+            <Layout
+                app:layout_constraintStart_toStartOf="@id/m"
+                app:layout_constraintTop_toBottomOf="@id/m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color3"
+                />
+        </Constraint>
+        <Constraint android:id="@+id/o" >
+            <Layout
+                app:layout_constraintStart_toStartOf="@id/a"
+                app:layout_constraintTop_toBottomOf="@id/a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color4"
+                />
+        </Constraint>
+    </ConstraintSet>
+
+    <!--结束位置-->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/m" >
+            <Layout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/a"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color13"
+                />
+        </Constraint>
+        <Constraint android:id="@+id/a" >
+            <Layout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color16"
+                />
+        </Constraint>
+        <Constraint android:id="@+id/o" >
+            <Layout
+                app:layout_constraintStart_toEndOf="@id/a"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/color6"
+                />
+        </Constraint>
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1500"
+        >
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@+id/toggle"
+            />
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:motionTarget="@id/m"
+                app:percentX="1"
+                app:percentY="0"
+                app:keyPositionType="deltaRelative"
+                app:framePosition="50"
+                />
+            <KeyPosition
+                app:motionTarget="@id/a"
+                app:percentX="0.5"
+                app:percentY="-0.5"
+                app:keyPositionType="pathRelative"
+                app:framePosition="50"
+                />
+            <KeyPosition
+                app:motionTarget="@id/o"
+                app:percentX="0.5"
+                app:percentY="0.15"
+                app:keyPositionType="parentRelative"
+                app:framePosition="50"
+                />
+        </KeyFrameSet>
+
+    </Transition>
+
+</MotionScene>

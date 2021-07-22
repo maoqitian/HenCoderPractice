@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MotionSimpleActivity">
+    tools:context=".MotionSimpleActivity"
+    app:layoutDescription="@xml/activity_motion_simple_layout_scene"
+    app:motionDebug="SHOW_ALL"
+    >
 
-    
+   <!--该控件支持改变饱和度-->
+    <androidx.constraintlayout.utils.widget.ImageFilterView
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/view"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        tools:ignore="MissingConstraints"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
