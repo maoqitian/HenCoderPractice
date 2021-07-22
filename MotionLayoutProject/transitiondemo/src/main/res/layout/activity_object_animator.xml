@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ObjectAnimatorActivity"
+    tools:viewBindingIgnore="true"
+    android:id="@+id/root"
+    >
+
+    <ImageView
+        android:id="@+id/heart"
+        android:onClick="onClick"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="start"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_heart_24dp"
+         />
+
+
+</FrameLayout >

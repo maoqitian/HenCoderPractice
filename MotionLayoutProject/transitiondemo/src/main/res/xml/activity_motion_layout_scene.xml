@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <!--Transition 节点表示一组过渡动画-->
+    <Transition
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+       </KeyFrameSet>
+        <!--过渡动画触发 控件ID 切换动作-->
+        <!--<OnClick
+            motion:targetId="@+id/image_film_cover"
+            motion:clickAction="toggle"
+            />-->
+        <!--拖动产生过渡动画-->
+        <!--向下滑动-->
+        <!--motion:onTouchUp="stop" 表示拖拽停止就停止 间接完成支持触摸反馈动画-->
+        <OnSwipe
+            motion:touchRegionId="@id/image_film_cover"
+            motion:dragDirection="dragDown"
+            motion:onTouchUp="stop"
+            />
+    </Transition>
+
+    <!--过渡动画开始状态-->
+    <ConstraintSet android:id="@+id/start">
+    </ConstraintSet>
+
+    <!--过渡动画结束状态-->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@+id/image_film_cover"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/p2623867432"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+
+        <Constraint
+            android:id="@+id/fab_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_bookmark_24dp"
+            android:tint="@color/color1"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:fabSize="mini" />
+    </ConstraintSet>
+</MotionScene>

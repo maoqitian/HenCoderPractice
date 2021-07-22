@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.MotionLayout.DEBUG_SHOW_PATH
+import androidx.transition.TransitionManager
 import java.util.concurrent.atomic.AtomicInteger
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.showPath).setOnClickListener {
             findViewById<MotionLayout>(R.id.motionLayout).setDebugMode(DEBUG_SHOW_PATH)
         }
+
+        //TransitionManager.beginDelayedTransition()
 
         Thread().start()
 
