@@ -3,7 +3,6 @@ package com.mao.motionlayoutproject.demo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.motion.widget.MotionLayout.DEBUG_SHOW_PATH
-import com.mao.motionlayoutproject.R
 import com.mao.motionlayoutproject.databinding.ActivityWordBinding
 
 /**

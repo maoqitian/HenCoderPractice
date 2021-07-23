@@ -95,12 +95,21 @@
         app:constraintSetStart="@+id/start"
         app:duration="1500"
         >
-
+        <!--点击toggle切换状态-->
         <OnClick
             app:clickAction="toggle"
             app:targetId="@+id/toggle"
             />
-
+        <!--关键帧集合-->
+        <!--关键帧定义动画每个阶段的动作
+        motion:motionTarget 表示关键点应用的控件
+        motion:framePosition 表示这个点处于动画进行到百分比
+        motion:keyPositionType 表示使用的坐标系，有三种选择
+        parentRelative 父容器坐标系左上角 （0，0） 右下角 （1，1）
+        deltaRelative 相对于自身的值 自身起始点的中心为原点（0，0） 终点为（1，1）
+        pathRelative 中心为原点（0，0） 终点为（1，0）
+        motion:percentX motion:percentX 关键点的（x,y）坐标
+        -->
         <KeyFrameSet>
             <KeyPosition
                 app:motionTarget="@id/m"

@@ -61,16 +61,15 @@
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@+id/start"
-        app:motionInterpolator="bounce"
         app:duration="2000"
         >
         <!--支持手势拖动-->
-        <OnSwipe
+        <!--<OnSwipe
             app:dragDirection="dragDown"
             app:touchAnchorSide="bottom"
-            />
+            />-->
         <!--点击-->
-        <!--<OnClick/>-->
+        <OnClick/>
         <!--设置关键帧-->
 
         <KeyFrameSet>
@@ -107,6 +106,63 @@
                 app:percentY="0.5"
                 app:pathMotionArc="flip"
                 app:keyPositionType="parentRelative"
+                />
+            <!--循环关键帧-->
+            <!--中间的 KeyCycle 描述 上下两个 KeyCycle 动作
+              app:wavePeriod="3" 表示循环次数
+            -->
+            <!--<KeyCycle
+                app:motionTarget="@id/view"
+                android:rotation="0"
+                app:framePosition="0"
+                app:wavePeriod="0"
+                app:waveShape="sin"
+                />
+            <KeyCycle
+                app:motionTarget="@id/view"
+                app:framePosition="50"
+                android:rotation="45"
+                app:wavePeriod="3"
+                app:waveShape="sin"
+                />
+            <KeyCycle
+                app:motionTarget="@id/view"
+                app:framePosition="0"
+                android:rotation="0"
+                app:wavePeriod="0"
+                app:waveShape="sin"
+                />-->
+            <!--时间循环关键帧-->
+            <!--app:wavePeriod="3" 表示每秒循环次数-->
+            <!--<KeyTimeCycle
+                app:motionTarget="@id/view"
+                android:rotation="0"
+                app:framePosition="0"
+                app:wavePeriod="0"
+                app:waveShape="sin"
+                />
+            <KeyTimeCycle
+                app:motionTarget="@id/view"
+                app:framePosition="50"
+                android:rotation="45"
+                app:wavePeriod="3"
+                app:waveShape="sin"
+                />
+            <KeyTimeCycle
+                app:motionTarget="@id/view"
+                app:framePosition="0"
+                android:rotation="0"
+                app:wavePeriod="0"
+                app:waveShape="sin"
+                />
+            <KeyTimeCycle/>-->
+
+            <!--到对应状态触发操作 隐藏 也可以回调监听-->
+            <!--view 控件设置成 FloatingActionButton 有效果-->
+            <KeyTrigger
+                app:motionTarget="@id/view"
+                app:framePosition="85"
+                app:onPositiveCross="hide"
                 />
         </KeyFrameSet>
     </Transition>

@@ -7,6 +7,7 @@
     tools:context=".MotionSimpleActivity"
     app:layoutDescription="@xml/activity_motion_simple_layout_scene"
     app:motionDebug="SHOW_ALL"
+    android:id="@+id/simpleMotion"
     >
 
    <!--该控件支持改变饱和度-->
