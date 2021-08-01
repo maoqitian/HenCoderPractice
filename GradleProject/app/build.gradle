@@ -51,9 +51,10 @@ android {
     }
 }
 
+//打印构建打包过程所有task 名称
 gradle.taskGraph.whenReady {
     it.allTasks.each { task ->
-        println "${task.name} : ${task.class.name - '_Decorated'}"
+        println "构建 ${task.name} : ${task.class.name - '_Decorated'}"
     }
 }
 
