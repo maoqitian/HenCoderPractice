@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 
 //运行时也保存
 @Retention(RetentionPolicy.RUNTIME)
-//作用于方法
+//作用于属性字段变量
 @Target(ElementType.FIELD)
 public @interface BindView {
 
