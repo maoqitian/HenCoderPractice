@@ -38,6 +38,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //在主进程中进行分析
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    //在 leakcanary 进程中进行分析
+    //debugImplementation 'com.squareup.leakcanary:leakcanary-android-process:2.7'
 
 }
