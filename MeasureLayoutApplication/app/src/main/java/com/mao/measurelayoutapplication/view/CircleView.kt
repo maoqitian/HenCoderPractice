@@ -11,6 +11,7 @@ import dp
  *  author : maoqitian
  *  date : 2021/3/14 13:11
  *  description : 画圆 能够根据开发者传入期望的值判断大小
+ *  View 尺寸自定义第二种方式（完全尺寸自定义） 同时能够支持开发者期望值来进行测量 通过Android已经提供好自定义测量方法 resolveSize
  */
 class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 

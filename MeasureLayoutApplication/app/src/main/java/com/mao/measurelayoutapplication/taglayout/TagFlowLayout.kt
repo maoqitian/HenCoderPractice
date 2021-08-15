@@ -73,8 +73,7 @@ class TagFlowLayout(context: Context?, attrs: AttributeSet?) : ViewGroup(context
 
             widthUsed = max(lineCurrWidth, widthUsed)
             //取的是最大高度
-            lineMaxHeight =
-                max(lineMaxHeight, child.measuredHeight + child.marginTop + child.marginBottom)
+            lineMaxHeight = max(lineMaxHeight, child.measuredHeight + child.marginTop + child.marginBottom)
 
         }
 

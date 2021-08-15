@@ -12,6 +12,7 @@ import kotlin.properties.Delegates
  *  author : maoqitian
  *  date : 2021/3/14 12:50
  *  description : 正方形的 Image View，使用系统测量的结果
+ *  View 尺寸 自定义第一种方式 ， 简单根据测量好的数据改写View
  */
 class SquareImageView(context: Context, attrs: AttributeSet) : AppCompatImageView(context, attrs) {
 
