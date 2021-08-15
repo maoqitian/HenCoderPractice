@@ -28,6 +28,7 @@ class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
         var viewSize = ((radius + padding) *2).toInt()
 
         //重新判断大小是否合适 固定代码 系统提供
+        //如果有开发者期望则使用开发者的期望值
 
         val width = resolveSize(viewSize,widthMeasureSpec)
         val height = resolveSize(viewSize,heightMeasureSpec)
