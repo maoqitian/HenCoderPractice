@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mao.measurelayoutapplication.taglayout.TagFlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mao.measurelayoutapplication.taglayout.TagLayoutPro xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -226,4 +226,4 @@
         android:layout_marginEnd="5dp"
         android:text="文斯卡特" />
 
-</com.mao.measurelayoutapplication.taglayout.TagFlowLayout>
+</com.mao.measurelayoutapplication.taglayout.TagLayoutPro>

@@ -11,6 +11,7 @@ import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.core.SingleObserver
 import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.functions.Function
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
@@ -56,12 +57,31 @@ class MainActivity : AppCompatActivity() {
                 })
 
 
+        //创建被观察者对象
+        val single = Single.just(1)
+        //使用操作符 map 数据转换
+        val singleStr = single.map(object : Function<Int, String> {
+            override fun apply(t: Int): String {
+                return t.toString()
+            }
 
-        Single.just(1)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-        //按照时间间隔发送一次
+        })
+        //订阅被观察者
+        singleStr.subscribe(object :SingleObserver<String>{
+            override fun onSubscribe(d: Disposable?) {
+            }
+
+            override fun onSuccess(t: String?) {
+            }
+
+            override fun onError(e: Throwable?) {
+            }
+
+        })
+
+        //按照时间间隔 1秒 发送一次
         Observable.interval(0, 1, TimeUnit.SECONDS)
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<Long?> {
                 override fun onComplete() {
