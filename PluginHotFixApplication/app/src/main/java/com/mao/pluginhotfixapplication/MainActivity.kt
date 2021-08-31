@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import com.mao.pluginhotfixapplication.databinding.ActivityMainBinding
 import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import okio.buffer
 import okio.sink
 import okio.source
@@ -55,7 +56,12 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
                 }*/
 
                 //网络加载
-                val okHttpClient = OkHttpClient()
+                val okHttpClient = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
+                    level = when(BuildConfig.DEBUG){
+                        true -> HttpLoggingInterceptor.Level.BASIC
+                        false -> HttpLoggingInterceptor.Level.NONE
+                    }
+                }).build()
                 val request = Request.Builder().url(remoteHotfixUrl).build()
 
                 okHttpClient.newCall(request).enqueue(object :Callback{

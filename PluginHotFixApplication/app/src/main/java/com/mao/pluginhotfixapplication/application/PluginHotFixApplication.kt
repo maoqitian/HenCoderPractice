@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import dalvik.system.BaseDexClassLoader
 import dalvik.system.DexClassLoader
+import me.weishu.reflection.Reflection
 import java.io.File
 
 /**
@@ -16,6 +17,8 @@ class PluginHotFixApplication :Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+
+        //Reflection.unseal(base)
 
         //创建缓存 apk 文件
         val hotfixDex = File("$cacheDir/hotfix.dex")
