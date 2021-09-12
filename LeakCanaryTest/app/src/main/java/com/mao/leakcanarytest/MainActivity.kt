@@ -45,11 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         // vsync 每16ms 发送一次 触发编舞者 的 doFrame 方法
         // 可以获取两次绘制的耗时 知道是否有卡段发送 但是不能知道是哪个地方卡顿
-        Choreographer.getInstance().postFrameCallback(object :Choreographer.FrameCallback{
-            override fun doFrame(frameTimeNanos: Long) {
-
-            }
-        })
+        Choreographer.getInstance().postFrameCallback(choreographerCallback)
 
 
 
@@ -86,5 +82,30 @@ class MainActivity : AppCompatActivity() {
     }
     fun c(){
         SystemClock.sleep(150)
+    }
+
+
+    val choreographerCallback = MyFrameCallback()
+
+
+    inner class MyFrameCallback :Choreographer.FrameCallback{
+        var lastTime :Long = 0
+        override fun doFrame(frameTimeNanos: Long) {
+            if(lastTime.toInt() == 0){
+                lastTime = frameTimeNanos
+            }else{
+                val times = (frameTimeNanos - lastTime)/1000000
+
+                val frames = (times/16).toInt()
+
+                if (times > 16){
+                    Log.w("maoqitian", "UI线程超时(超过16ms):" + times + "ms" + " , 丢帧:" + frames);
+                }
+
+                lastTime = frameTimeNanos
+            }
+
+            Choreographer.getInstance().postFrameCallback(choreographerCallback)
+        }
     }
 }
