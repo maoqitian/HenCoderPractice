@@ -1,0 +1,45 @@
+//本地仓库发布脚本
+// maven-publish 配置文件 外部使用需要 apply from: 'maven-push.gradle'
+//官方doc: https://docs.gradle.org/7.0/userguide/publishing_setup.html#publishing_overview
+//谷歌文档 https://developer.android.com/studio/build/maven-publish-plugin?hl=zh-cn#groovy
+//首先记得 生成 aar 包，在本module task 中执行 assemble 任务 会在 build/output/aar 生成对应的aar包
+//其次执行 publish 发布 aar 包
+apply plugin: 'maven-publish'
+
+afterEvaluate {
+    publishing {
+        //发布的 jar 包配置
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.mao.testmavenpush'
+                artifactId = 'maven-push-test'
+                version = '1.0.0'
+                //aar 文件
+                def projectName = project.getName()
+                artifact "build/outputs/aar/${projectName}-release.aar"
+
+                pom.withXml{
+                    def dependenciesNode = asNode().appendNode("dependencies")
+                    configurations.implementation.allDependencies.forEach(){
+                        Dependency dependency ->
+                            if (dependency.version != "unspecified" && dependency.name != "unspecified"){
+                                def dependencyNode = dependenciesNode.appendNode('dependency')
+                                dependencyNode.appendNode('groupId', dependency.group)
+                                dependencyNode.appendNode('artifactId', dependency.name)
+                                dependencyNode.appendNode('version', dependency.version)
+                            }
+                    }
+                }
+
+            }
+        }
+        //仓库地址配置
+        repositories {
+            maven {
+                // test, upload local maven repository
+                //url = "file:" + new File(project.rootProject.rootDir, "local_test_repo").path
+                url = "file://e:/maventestrepository"
+            }
+        }
+    }
+}

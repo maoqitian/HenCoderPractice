@@ -7,15 +7,10 @@ import android.view.ViewGroup
 import com.example.core.BaseApplication
 import com.example.core.R
 
-//扩展属性
-val ViewGroup.firstChild:View
-    get() = getChildAt(0)
 
-
+@SuppressLint("StaticFieldLeak")
 object CacheUtils {
 
-
-    @SuppressLint("StaticFieldLeak")
     private val context = BaseApplication.currentApplication
     private val SP = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
     fun save(key: String?, value: String?)= SP.edit().putString(key, value).apply()
