@@ -6,6 +6,7 @@ import android.os.Looper
 import android.os.MessageQueue
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,10 @@ import com.example.core.utils.toast
 import com.example.lesson.LessonActivity
 import okhttp3.Request
 import okhttp3.Response
+
+//
+val ViewGroup.firstView:View
+      get() = getChildAt(0)
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

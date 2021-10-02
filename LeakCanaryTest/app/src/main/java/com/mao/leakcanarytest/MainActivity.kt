@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.util.Printer
 import android.view.Choreographer
+import androidx.annotation.RequiresApi
 import com.mao.leakcanarytest.databinding.ActivityMainBinding
 import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         Debug.startMethodTracing("testTraceView")
         super.onCreate(savedInstanceState)
@@ -59,6 +61,24 @@ class MainActivity : AppCompatActivity() {
 
         Debug.stopMethodTracing()
 
+
+        mainLooper.queue.addIdleHandler(object :MessageQueue.IdleHandler {
+            override fun queueIdle(): Boolean {
+                memoryData()
+                return true
+            }
+        })
+    }
+
+    fun memoryData(){
+        val runtime = Runtime.getRuntime()
+        val javaMax: Long = runtime.maxMemory()
+        val javaTotal: Long = runtime.totalMemory()
+        val javaUsed: Long = javaTotal - runtime.freeMemory()
+        // Java 内存使用超过最大限制的 85%
+        val proportion =  javaUsed / javaMax
+
+        Log.e("stackTrace","proportion : $proportion")
 
     }
 
