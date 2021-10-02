@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
 }
 
@@ -7,13 +7,13 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.mao.plugin"
         minSdk 21
         targetSdk 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -36,25 +36,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
-    implementation project(":dynamicload")
-}
-
-//在构建完之后执行 任务将 plugin-debug.apk 复制到宿主工程assets目录下
-project.afterEvaluate {
-    project.tasks.each {
-        if (it.name == "assembleDebug") {
-            it.doLast {
-                copy {
-                    from new File(project.getBuildDir(), 'outputs/apk/debug/plugin-debug.apk').absolutePath
-                    into new File(project.getRootProject().getProjectDir(), 'app/src/main/assets')
-                    rename 'plugin-debug.apk', 'plugin.apk'
-                }
-            }
-        }
-    }
 }

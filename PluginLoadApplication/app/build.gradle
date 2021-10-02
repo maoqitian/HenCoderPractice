@@ -29,6 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -43,4 +46,17 @@ dependencies {
 
     implementation 'com.squareup.okio:okio:2.10.0'
 
+    implementation project(":dynamicload")
+
+    implementation 'com.github.tiann:FreeReflection:3.1.0'
+
+}
+
+//等待插件工程 assembleDebug task 执行完
+project.afterEvaluate {
+    project.tasks.each {
+        if (it.name == 'mergeDebugAssets') {
+            it.dependsOn ':plugin:assembleDebug'
+        }
+    }
 }
